@@ -31,6 +31,10 @@ function castFKeyspell() {
   // };
   const customStyle = {
     // ADD STYLES HERE
+    borderRadius: "0%",
+    background: "linear-gradient(to right, purple, cyan)",
+    boxShadow: "0 0 15px cyan",
+    transform: "rotate(45deg)",
   };
 
   // Apply both base and custom styles
