@@ -31,6 +31,10 @@ function castDKeyspell() {
   // };
   const customStyle = {
     // ADD STYLES HERE
+    width: "20px",
+    height: "20px",
+    borderRadius: "10%",
+    background: "linear-gradient(to top right, blue, white)",
   };
 
   // Apply both base and custom styles
@@ -48,8 +52,8 @@ function castDKeyspell() {
 
   // Animate keyspell movement
   const interval = setInterval(() => {
-    x += Math.cos(radians) * speed;
-    y -= Math.sin(radians) * speed;
+    x += Math.cos(radians) * Math.pow(speed, (Math.PI - Math.E));
+    y -= Math.sin(radians) * Math.pow(speed, (Math.PI + Math.E));
     keyspell.style.left = `${x}px`;
     keyspell.style.top = `${y}px`;
 
