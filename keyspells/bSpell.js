@@ -12,14 +12,14 @@ function castBKeyspell() {
   // Base style: black dot (FEEL FREE TO CHANGE)
   const baseStyle = {
     position: "absolute",
-    bottom: "150px",
-    left: "50%",
-    width: "10px",
-    height: "10px",
+    bottom: "125px",
+    left: "65%",
+    width: "100px",
+    height: "100px",
     borderRadius: "50%",
-    background: "black",
+    background: "red",
   };
-
+// gdsc
   // 🎨 Add more custom styling here!
   // Use real CSS property names in camelCase (like in JavaScript objects)
   // Example:
