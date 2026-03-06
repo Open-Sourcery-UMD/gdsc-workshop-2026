@@ -33,7 +33,7 @@ function castAKeyspell() {
   const customStyle = {
     // ADD STYLES HERE
     borderRadius: "20%",
-    background: "linear-gradient(to right, purple, cyan)",
+    background: "black",
     boxShadow: "0 0 15px purple",
     transform: "rotate(45deg)",
   };
