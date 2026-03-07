@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spell Test - G, D, K Keys</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #34A853);
+      overflow: hidden;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    #wizard {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12.5rem;
+      user-select: none;
+    }
+
+    #instructions {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #instructions h2 {
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+
+    #instructions p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .key {
+      display: inline-block;
+      background: #333;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+
+    #console {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #0f0;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 12px;
+      max-width: 300px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .log-entry {
+      margin: 2px 0;
+    }
+
+    .log-success {
+      color: #0f0;
+    }
+
+    .log-error {
+      color: #f00;
+    }
+  </style>
+</head>
+<body>
+  <div id="instructions">
+    <h2>🧙‍♂️ Spell Testing</h2>
+    <p>Press <span class="key">G</span> for Google spell (Blue/Red/Yellow/Green)</p>
+    <p>Press <span class="key">D</span> for Docker spell (Blue #2496ED)</p>
+    <p>Press <span class="key">K</span> for Kubernetes spell (Blue #326CE5)</p>
+  </div>
+
+  <img id="wizard" src="gideon.png" alt="Gideon the Wizard">
+
+  <div id="console">
+    <div class="log-entry log-success">Console ready...</div>
+  </div>
+
+  <!-- Load spell scripts -->
+  <script src="keyspells/gSpell.js"></script>
+  <script src="keyspells/dSpell.js"></script>
+  <script src="keyspells/kSpell.js"></script>
+
+  <script>
+    // Enhanced console logging
+    const consoleDiv = document.getElementById('console');
+    
+    function log(message, type = 'success') {
+      const entry = document.createElement('div');
+      entry.className = `log-entry log-${type}`;
+      entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      consoleDiv.appendChild(entry);
+      consoleDiv.scrollTop = consoleDiv.scrollHeight;
+      
+      // Keep only last 20 entries
+      while (consoleDiv.children.length > 20) {
+        consoleDiv.removeChild(consoleDiv.firstChild);
+      }
+    }
+
+    // Override console methods to capture errors
+    const originalError = console.error;
+    const originalWarn = console.warn;
+    
+    console.error = function(...args) {
+      log('ERROR: ' + args.join(' '), 'error');
+      originalError.apply(console, args);
+    };
+    
+    console.warn = function(...args) {
+      log('WARN: ' + args.join(' '), 'error');
+      originalWarn.apply(console, args);
+    };
+
+    // Track key presses
+    document.addEventListener('keydown', (event) => {
+      const key = event.key.toLowerCase();
+      if (key === 'g') {
+        log('G key pressed - Google spell cast!');
+      } else if (key === 'd') {
+        log('D key pressed - Docker spell cast!');
+      } else if (key === 'k') {
+        log('K key pressed - Kubernetes spell cast!');
+      }
+    });
+
+    // Check if spells are loaded
+    setTimeout(() => {
+      log('Checking spell functions...');
+      if (typeof castGKeyspell === 'function') {
+        log('✓ Google spell loaded');
+      } else {
+        log('✗ Google spell NOT loaded', 'error');
+      }
+      
+      if (typeof castDKeyspell === 'function') {
+        log('✓ Docker spell loaded');
+      } else {
+        log('✗ Docker spell NOT loaded', 'error');
+      }
+      
+      if (typeof castKKeyspell === 'function') {
+        log('✓ Kubernetes spell loaded');
+      } else {
+        log('✗ Kubernetes spell NOT loaded', 'error');
+      }
+    }, 100);
+  </script>
+</body>
+</html>

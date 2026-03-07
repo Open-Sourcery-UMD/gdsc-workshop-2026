@@ -24,7 +24,7 @@ function castDKeyspell() {
     left: "50%",
     width: "28px",
     height: "20px",
-    borderRadius: "4px", // Slightly rounded like Docker logo
+    borderRadius: "4px",
     background: dockerBlue,
   };
 
@@ -113,7 +113,7 @@ function castDKeyspell() {
 
 // Create stacked container blocks (representing Docker layers)
 function createDockerContainerStack(centerX, centerY, color) {
-  const containerCount = 5; // 5 container blocks
+  const containerCount = 5;
   
   for (let i = 0; i < containerCount; i++) {
     setTimeout(() => {
@@ -160,7 +160,7 @@ function createDockerContainerStack(centerX, centerY, color) {
           }
         }
       }, 16);
-    }, i * 80); // Stagger the container creation
+    }, i * 80);
   }
   
   // Add small particles representing microservices
