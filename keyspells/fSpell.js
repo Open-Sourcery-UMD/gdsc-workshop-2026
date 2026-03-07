@@ -14,10 +14,11 @@ function castFKeyspell() {
     position: "absolute",
     bottom: "150px",
     left: "50%",
-    width: "10px",
-    height: "10px",
+    width: "50px",
+    height: "50px",
     borderRadius: "50%",
     background: "black",
+
   };
 
   // 🎨 Add more custom styling here!
@@ -31,6 +32,10 @@ function castFKeyspell() {
   // };
   const customStyle = {
     // ADD STYLES HERE
+    borderRadius: "50%",
+    background: "linear-gradient(to right, green, cyan)",
+    boxShadow: "0 0 15px cyan",
+    transform: "rotate(45deg)",
   };
 
   // Apply both base and custom styles

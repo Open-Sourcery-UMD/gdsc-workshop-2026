@@ -30,11 +30,19 @@ function castDKeyspell() {
 
   // Docker-themed custom styling
   const customStyle = {
+ feature/docker-kubernetes-spells
     boxShadow: `0 0 20px ${dockerBlue}, 0 0 40px ${dockerBlue}60`,
     border: `2px solid ${dockerBlue}`,
     transform: "scale(1)",
     zIndex: "1000",
     opacity: "1"
+
+    // ADD STYLES HERE
+    width: "20px",
+    height: "20px",
+    borderRadius: "10%",
+    background: "linear-gradient(to top right, blue, white)",
+ main
   };
 
   // Create CSS animations for Docker spell
@@ -72,6 +80,7 @@ function castDKeyspell() {
 
   // Animate main spell movement with floating effect
   const interval = setInterval(() => {
+feature/docker-kubernetes-spells
     x += Math.cos(radians) * speed;
     y -= Math.sin(radians) * speed;
     floatOffset += 0.1;
@@ -79,6 +88,10 @@ function castDKeyspell() {
     // Add floating wave motion
     const floatY = Math.sin(floatOffset) * 5;
     
+
+    x += Math.cos(radians) * Math.pow(speed, (Math.PI - Math.E));
+    y -= Math.sin(radians) * Math.pow(speed, (Math.PI + Math.E));
+ main
     keyspell.style.left = `${x}px`;
     keyspell.style.top = `${y + floatY}px`;
     

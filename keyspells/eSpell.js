@@ -30,7 +30,10 @@ function castEKeyspell() {
   //   transform: "rotate(45deg)",
   // };
   const customStyle = {
-    // ADD STYLES HERE
+     background: "linear-gradient(to right, magenta, blue)",
+     borderRadius: "67%",
+     boxShadow: "0 0 20px black",
+     transform: "rotate(69deg)",
   };
 
   // Apply both base and custom styles
